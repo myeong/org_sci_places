@@ -4,6 +4,7 @@
 /* global L */
 import { MAP_START, BASIS_WORDS, IDENTITY_BASIS, LEVELS, valueOf } from "./config.js";
 import { categoryColor, scoreColor, rateColor, scoreBin } from "./scales.js";
+import { loadSurface } from "./data.js";
 
 // A canvas renderer that can draw a circle marker as a diamond.
 const ShapeCanvas = L.Canvas.extend({
@@ -26,10 +27,12 @@ export function createMap(container) {
   // OpenStreetMap's standard tiles, greyed (and inverted in dark mode) in css/app.css so the data carries the colour.
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19 }).addTo(map);
   map.createPane("hexes").style.zIndex = 380;
+  map.createPane("regions").style.zIndex = 385; map.createPane("blines").style.zIndex = 420;
+  const svg = L.svg({ pane: "blines", padding: 0.3 }), svgRegions = L.svg({ pane: "regions", padding: 0.3 });
   const renderer = new ShapeCanvas({ padding: 0.3 });
   const points = L.layerGroup().addTo(map), hexLayer = L.layerGroup().addTo(map);
   const band = () => (map.getZoom() <= 10 ? 0 : map.getZoom() <= 12 ? 1 : 2);
-  return { map, renderer, points, hexLayer,
+  return { map, renderer, points, hexLayer, svg, svgRegions,
     onZoomBand: (fn) => { let b = band(); map.on("zoomend", () => { if (band() !== b) { b = band(); fn(); } }); },
     onThemeChange: (fn) => dark.addEventListener("change", fn) };
 }
@@ -118,10 +121,42 @@ function comboHexPopup(h, share, rate, condText, cls, wordsMap) {
   return d;
 }
 
+// ---- areas: regions where a characteristic is concentrated, and boundary lines styled by the evidence behind them
+export const surfaceKey = (state) => `${state.areaSource}~${state.dim.id}~${state.dim.id === "unwelcome" ? "all" : state.choice[state.dim.id] ?? "all"}`;
+export function surfaceAvailable(data, key) { return (data.meta.boundaries?.surfaces || []).some((s) => s.key === key); }
+const UNIT_WORDS = { google: "Google places", meetup: "Meetup activity (groups weighted by events)" };
+async function drawAreas(view, data, state, tokens, shown) {
+  const key = surfaceKey(state);
+  if (!surfaceAvailable(data, key)) { shown.areaNote = "Not enough data for areas with this choice. Try “Any”, or the other data source."; return; }
+  const s = await loadSurface(key);
+  if (surfaceKey(state) !== key || state.view !== "areas") return;   // the reader moved on while it loaded
+  const fills = { 0: tokens.areaLow, 2: tokens.score[3], 3: tokens.score[5] };
+  const unitText = s.unit === "%" ? `${UNIT_WORDS[s.source]} scoring 3 or more` : "reports per 1,000 reviews";
+  for (const r of s.regions) {
+    const shareText = s.unit === "%" ? `${fmt(r.share)}%` : fmt(r.share);
+    L.polygon([r.outer, ...r.holes], { renderer: view.svgRegions, stroke: false, fillColor: fills[r.level], fillOpacity: r.level === 0 ? 0.35 : 0.3 + 0.35 * r.stability })
+      .bindTooltip(`${r.name[0].toUpperCase() + r.name.slice(1)}: ${shareText} here vs ${s.unit === "%" ? `${fmt(s.region_share)}%` : fmt(s.region_share)} region-wide`, { sticky: true })
+      .bindPopup(() => { const d = head(r.name[0].toUpperCase() + r.name.slice(1), `${UNIT_WORDS[s.source]} · about ${fmt(r.area_km2)} km²`);
+        rows(d, [[`Here (${unitText})`, shareText], ["Region-wide", s.unit === "%" ? `${fmt(s.region_share)}%` : fmt(s.region_share)],
+                 ["Effective number of units behind it", fmt(r.support)], ["Same class in resampled data", `${Math.round(r.stability * 100)}%`]]);
+        d.append(el("div", "foot", "Areas are smoothed over about 1.5 km and shown only where at least 5 units support them. A region describes the data, not a territory of a group."));
+        return d; }, { maxWidth: 340 }).addTo(view.hexLayer);
+    shown.hexes.push({ lat: r.outer[0][0], lon: r.outer[0][1], value: r.level >= 2 ? r.share : 0, places: 0, reviews: 0, region: r });
+  }
+  const W = [1, 1.8, 3, 4.6], OP = [0.35, 0.65, 0.95], SHARP = ["gradual", "moderate", "sharp", "very sharp"], CERT = ["uncertain position", "fairly certain position", "certain position"];
+  for (const l of s.lines) {
+    // boundary lines take a hue of their own, so they are not read as roads on the grey basemap
+    L.polyline(l.pts, { renderer: view.svg, color: tokens.cat[1], weight: W[l.sharp], opacity: OP[l.cert], lineCap: "round", className: l.cert === 0 ? "bl-blur" : l.cert === 1 ? "bl-soft" : "bl-crisp", interactive: true })
+      .bindTooltip(`${SHARP[l.sharp]} change · ${CERT[l.cert]} (±${fmt(l.unc_km)} km) · ${fmt(l.support)} units`, { sticky: true }).addTo(view.hexLayer);
+  }
+  shown.surface = s;
+}
+
 // ---- drawing
-export function draw(view, data, state, tokens) {
+export async function draw(view, data, state, tokens) {
   const { points, hexLayer, renderer } = view; points.clearLayers(); hexLayer.clearLayers();
   const dim = state.dim, shown = { places: [], venues: [], hexes: [] };
+  if (state.view === "areas" && (dim.kind === "score" || dim.kind === "area")) { await drawAreas(view, data, state, tokens, shown); return shown; }
   const uw = dim.kind === "filter" ? state.criteria.find((c) => c.dim === "unwelcome") : null;
 
   if (dim.kind === "area" || uw) {                         // areas are always built from the Google places
@@ -176,7 +211,8 @@ export function draw(view, data, state, tokens) {
         if (state.hiddenCats[source].has(r.cat)) continue;
         rowsOut.push({ r, v: 0, color: categoryColor(tokens, cats, r.cat), strong: true, tip: `${r.n} · ${r.cat}`, pop: () => categoryPopup(r, source, data) });
       } else if (dim.kind === "filter") {
-        const vals = state.criteria.map((c) => valueOf(r, c.dim, c.choice));
+        // the institution rule of the Exclusivity view applies here too: a school's clientele is not identity targeting
+        const vals = state.criteria.map((c) => (c.dim === "targeting" && c.choice === "all" && source === "places" && !state.institutions && !IDENTITY_BASIS.has(r.tb)) ? 0 : valueOf(r, c.dim, c.choice));
         if (!vals.every((v, i) => v != null && v >= state.criteria[i].min - 0.5)) continue;   // venue averages round to the nearest level
         rowsOut.push({ r, v: vals[0], color: tokens.score[4], strong: true, tip: `${r.n}`, pop: () => criteriaPopup(r, source, state, data) });
       } else {

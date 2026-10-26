@@ -9,6 +9,7 @@ Leave out everything that identifies a person or a way to reach the group:
 - names of organisers, members, hosts, or teachers;
 - phone numbers, emails, websites, social-media handles, and links;
 - street addresses, building names, and meeting rooms;
+- names of businesses, venues, or other organisations where the group meets or that it mentions (say "a grocery store", "a wellness center"); the name of an organisation the group itself belongs to may stay;
 - prices, fees, and payment details (say "paid membership" or "has a fee" if a fee is central);
 - dates, times, and schedules.
 

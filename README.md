@@ -23,6 +23,8 @@ Pick one dimension in the left panel and the map colours every place and group b
 | Socio-economic barrier | What does it cost, in money, dress, or status, to take part? | A steakhouse where reviewers say to "come dressed to wow" scores 3 |
 | Unwelcomeness | Who reports being treated worse because of who they are? | Shown only as a rate per 1,000 reviews for areas, never for a single place |
 
+Switch a dimension to **Areas** to see boundaries rather than single places: the map smooths the scores over about 1.5 km, shades the regions where a characteristic is at least twice as common as across the whole region, and draws the lines between them. A thick, crisp line marks a sharp change that the data place precisely; a thin, faint, or blurred line marks a gradual change or one resting on little data. Google places and Meetup groups are mapped separately.
+
 You can also choose a specific group or community within a dimension (for example "aimed at women" or "Korean"), and use **Combined criteria** to find the places that meet several conditions at once. Clicking a place shows its score, what that level means, and the details behind it. The **About** page on the site explains the ideas in more depth.
 
 ## How it works
@@ -30,7 +32,7 @@ You can also choose a specific group or community within a dimension (for exampl
 1. **Collect the text.** For each Meetup group: its description, topics, and event titles. For each Google place: its reviews.
 2. **Pick the reviews worth reading.** A short AI prompt reads up to 100 reviews per place, spread across star ratings, and flags the few that mention who the place is for, cost or dress, cultural identity, politics, or people being made to feel unwelcome. Up to 20 reviews per place, the flagged ones first, go to the next step.
 3. **Score.** The AI model reads the text against a written codebook ([`data/reference/dimension_codebook.md`](data/reference/dimension_codebook.md)) that defines each dimension and what each level means. For every score above 0 it must quote the passage that supports it.
-4. **Map.** Places are shown at their addresses. Meetup groups are shown at the venues where they met. Unwelcomeness is pooled into hexagonal areas of about 5 km².
+4. **Map.** Places are shown at their addresses. Meetup groups are shown at the venues where they met. Unwelcomeness is pooled into hexagonal areas of about 5 km². For the Areas view, scores are smoothed into regions, and the lines between regions are styled by how sharp the change is and how much data support it.
 
 Because the codebook is plain text, anyone can read exactly what was measured, and change it to measure something else.
 
@@ -38,7 +40,7 @@ Because the codebook is plain text, anyone can read exactly what was measured, a
 
 ```
 demo/public/        the website (HTML, CSS, JavaScript; no build step)
-demo/data/          the scores shown on the map (no review text)
+demo/data/          the scores shown on the map (no review text), and the regions and lines of the Areas view
 demo/firebase.json  hosting settings for Firebase
 demo/firestore.rules  who may read and write the map data
 data/reference/     the codebook and other instructions given to the AI model, and the identity vocabulary
@@ -75,7 +77,9 @@ python scripts/build_dimension_inputs.py    # 2. assemble the text the model rea
 python scripts/score_dimensions.py groups   # 3. score the Meetup groups
 python scripts/score_dimensions.py places   #    and the Google places
 python scripts/public_descriptions.py       # 4. write short, anonymised summaries of the group descriptions
+python scripts/pseudonymize_names.py       #    invented names for businesses and venues (the map never shows real ones)
 python scripts/build_demo_data.py           # 5. turn the scores into the map files in demo/data/
+python scripts/build_boundaries.py          #    and the regions and boundary lines for the Areas view
 python scripts/upload_firestore.py          # 6. store the map files in Firestore
 cd demo && firebase deploy --only hosting,firestore:rules --project "$FIREBASE_PROJECT"   # 7. publish the site
 ```
@@ -88,6 +92,7 @@ Every scoring step can be stopped and resumed. As a guide to cost, in our runs t
 - **No review text on the site.** The map shows scores and short descriptions only. Pop-ups for places explain the score without quoting any review.
 - **Unwelcomeness is shown for areas only**, as reports per 1,000 reviews, because a single anonymous review should not brand a business.
 - **Group descriptions are summarised.** The site shows a one- or two-sentence summary of each Meetup group's description, written by the AI model with names of people, contact details, addresses, and prices removed. Descriptions of private groups are not shown.
+- **Business and venue names are pseudonyms.** Every place on the map carries an invented name that keeps the kind of place and its cultural cues (a Korean bakery stays a Korean bakery) but not its real name (`scripts/pseudonymize_names.py`). Meetup group names are the groups' own public titles.
 - **Private homes are left out.** Meetup venues whose names indicate someone's home are excluded.
 
 ## Limitations

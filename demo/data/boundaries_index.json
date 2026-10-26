@@ -1,0 +1,401 @@
+{
+ "params": {
+  "cell_m": 250,
+  "sigma_m": 1500,
+  "min_support": 5.0,
+  "levels_x_region": [
+   0.5,
+   2.0,
+   4.0
+  ],
+  "bootstraps": 100,
+  "classes": [
+   "below average",
+   "about average",
+   "concentrated",
+   "strongly concentrated"
+  ]
+ },
+ "surfaces": [
+  {
+   "key": "google~cultural~all",
+   "file": "google~cultural~all.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "all",
+   "regions": 36,
+   "lines": 367,
+   "region_share": 9.01
+  },
+  {
+   "key": "google~cultural~Latino",
+   "file": "google~cultural~Latino.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "Latino",
+   "regions": 19,
+   "lines": 384,
+   "region_share": 1.01
+  },
+  {
+   "key": "google~cultural~Christian",
+   "file": "google~cultural~Christian.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "Christian",
+   "regions": 29,
+   "lines": 479,
+   "region_share": 0.45
+  },
+  {
+   "key": "google~cultural~Baptist",
+   "file": "google~cultural~Baptist.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "Baptist",
+   "regions": 22,
+   "lines": 353,
+   "region_share": 0.35
+  },
+  {
+   "key": "google~cultural~Indian",
+   "file": "google~cultural~Indian.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "Indian",
+   "regions": 24,
+   "lines": 455,
+   "region_share": 0.47
+  },
+  {
+   "key": "google~cultural~Catholic",
+   "file": "google~cultural~Catholic.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "Catholic",
+   "regions": 29,
+   "lines": 440,
+   "region_share": 0.38
+  },
+  {
+   "key": "google~cultural~Spanish-speaking",
+   "file": "google~cultural~Spanish-speaking.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "Spanish-speaking",
+   "regions": 21,
+   "lines": 345,
+   "region_share": 0.65
+  },
+  {
+   "key": "google~cultural~Salvadoran",
+   "file": "google~cultural~Salvadoran.json",
+   "source": "google",
+   "dim": "cultural",
+   "choice": "Salvadoran",
+   "regions": 20,
+   "lines": 384,
+   "region_share": 0.62
+  },
+  {
+   "key": "google~targeting~all",
+   "file": "google~targeting~all.json",
+   "source": "google",
+   "dim": "targeting",
+   "choice": "all",
+   "regions": 30,
+   "lines": 559,
+   "region_share": 1.48
+  },
+  {
+   "key": "google~barrier~all",
+   "file": "google~barrier~all.json",
+   "source": "google",
+   "dim": "barrier",
+   "choice": "all",
+   "regions": 11,
+   "lines": 217,
+   "region_share": 1.29
+  },
+  {
+   "key": "meetup~cultural~all",
+   "file": "meetup~cultural~all.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "all",
+   "regions": 40,
+   "lines": 230,
+   "region_share": 23.87
+  },
+  {
+   "key": "meetup~cultural~Black / African American",
+   "file": "meetup~cultural~Black___African_American.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "Black / African American",
+   "regions": 45,
+   "lines": 341,
+   "region_share": 1.82
+  },
+  {
+   "key": "meetup~cultural~LGBTQ",
+   "file": "meetup~cultural~LGBTQ.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "LGBTQ",
+   "regions": 23,
+   "lines": 140,
+   "region_share": 7.17
+  },
+  {
+   "key": "meetup~cultural~Christian",
+   "file": "meetup~cultural~Christian.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "Christian",
+   "regions": 36,
+   "lines": 316,
+   "region_share": 1.06
+  },
+  {
+   "key": "meetup~cultural~Indian",
+   "file": "meetup~cultural~Indian.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "Indian",
+   "regions": 37,
+   "lines": 338,
+   "region_share": 0.37
+  },
+  {
+   "key": "meetup~cultural~Spanish-speaking",
+   "file": "meetup~cultural~Spanish-speaking.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "Spanish-speaking",
+   "regions": 19,
+   "lines": 104,
+   "region_share": 0.63
+  },
+  {
+   "key": "meetup~cultural~Spiritual / New Age",
+   "file": "meetup~cultural~Spiritual___New_Age.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "Spiritual / New Age",
+   "regions": 32,
+   "lines": 311,
+   "region_share": 1.1
+  },
+  {
+   "key": "meetup~cultural~South Asian",
+   "file": "meetup~cultural~South_Asian.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "South Asian",
+   "regions": 37,
+   "lines": 341,
+   "region_share": 0.38
+  },
+  {
+   "key": "meetup~cultural~Asian",
+   "file": "meetup~cultural~Asian.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "Asian",
+   "regions": 48,
+   "lines": 453,
+   "region_share": 0.22
+  },
+  {
+   "key": "meetup~cultural~Buddhist",
+   "file": "meetup~cultural~Buddhist.json",
+   "source": "meetup",
+   "dim": "cultural",
+   "choice": "Buddhist",
+   "regions": 33,
+   "lines": 288,
+   "region_share": 3.05
+  },
+  {
+   "key": "meetup~targeting~all",
+   "file": "meetup~targeting~all.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "all",
+   "regions": 45,
+   "lines": 248,
+   "region_share": 16.42
+  },
+  {
+   "key": "meetup~targeting~Women",
+   "file": "meetup~targeting~Women.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Women",
+   "regions": 38,
+   "lines": 285,
+   "region_share": 1.76
+  },
+  {
+   "key": "meetup~targeting~Black / African American",
+   "file": "meetup~targeting~Black___African_American.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Black / African American",
+   "regions": 46,
+   "lines": 371,
+   "region_share": 1.93
+  },
+  {
+   "key": "meetup~targeting~Young professionals",
+   "file": "meetup~targeting~Young_professionals.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Young professionals",
+   "regions": 65,
+   "lines": 560,
+   "region_share": 2.21
+  },
+  {
+   "key": "meetup~targeting~LGBTQ",
+   "file": "meetup~targeting~LGBTQ.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "LGBTQ",
+   "regions": 22,
+   "lines": 134,
+   "region_share": 7.55
+  },
+  {
+   "key": "meetup~targeting~Older adults",
+   "file": "meetup~targeting~Older_adults.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Older adults",
+   "regions": 65,
+   "lines": 579,
+   "region_share": 0.4
+  },
+  {
+   "key": "meetup~targeting~Young adults (20s\u201330s)",
+   "file": "meetup~targeting~Young_adults__20s_30s_.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Young adults (20s\u201330s)",
+   "regions": 21,
+   "lines": 126,
+   "region_share": 0.34
+  },
+  {
+   "key": "meetup~targeting~Christian",
+   "file": "meetup~targeting~Christian.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Christian",
+   "regions": 24,
+   "lines": 123,
+   "region_share": 0.47
+  },
+  {
+   "key": "meetup~targeting~Spanish-speaking",
+   "file": "meetup~targeting~Spanish-speaking.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Spanish-speaking",
+   "regions": 19,
+   "lines": 104,
+   "region_share": 0.59
+  },
+  {
+   "key": "meetup~targeting~South Asian",
+   "file": "meetup~targeting~South_Asian.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "South Asian",
+   "regions": 39,
+   "lines": 342,
+   "region_share": 0.44
+  },
+  {
+   "key": "meetup~targeting~Indian",
+   "file": "meetup~targeting~Indian.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Indian",
+   "regions": 37,
+   "lines": 339,
+   "region_share": 0.38
+  },
+  {
+   "key": "meetup~targeting~Latino",
+   "file": "meetup~targeting~Latino.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Latino",
+   "regions": 20,
+   "lines": 105,
+   "region_share": 0.39
+  },
+  {
+   "key": "meetup~targeting~Asian",
+   "file": "meetup~targeting~Asian.json",
+   "source": "meetup",
+   "dim": "targeting",
+   "choice": "Asian",
+   "regions": 37,
+   "lines": 402,
+   "region_share": 0.32
+  },
+  {
+   "key": "meetup~barrier~all",
+   "file": "meetup~barrier~all.json",
+   "source": "meetup",
+   "dim": "barrier",
+   "choice": "all",
+   "regions": 44,
+   "lines": 410,
+   "region_share": 0.77
+  },
+  {
+   "key": "meetup~political~all",
+   "file": "meetup~political~all.json",
+   "source": "meetup",
+   "dim": "political",
+   "choice": "all",
+   "regions": 41,
+   "lines": 332,
+   "region_share": 2.24
+  },
+  {
+   "key": "meetup~political~left",
+   "file": "meetup~political~left.json",
+   "source": "meetup",
+   "dim": "political",
+   "choice": "left",
+   "regions": 41,
+   "lines": 333,
+   "region_share": 2.0
+  },
+  {
+   "key": "meetup~political~right",
+   "file": "meetup~political~right.json",
+   "source": "meetup",
+   "dim": "political",
+   "choice": "right",
+   "regions": 31,
+   "lines": 336,
+   "region_share": 0.14
+  },
+  {
+   "key": "google~unwelcome~all",
+   "file": "google~unwelcome~all.json",
+   "source": "google",
+   "dim": "unwelcome",
+   "choice": "all",
+   "regions": 32,
+   "lines": 122,
+   "region_share": 2.57
+  }
+ ]
+}

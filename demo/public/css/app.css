@@ -9,7 +9,7 @@
   /* one-hue ramp for scores 1-5 (ordinal: lightest step still clears 2:1 on the surface) and for the area rate */
   --s0: #c3c2b7; --s1: #86b6ef; --s2: #5598e7; --s3: #2a78d6; --s4: #1c5cab; --s5: #0d366b;
   --r0: #f0efec; --r1: #b7d3f6; --r2: #6da7ec; --r3: #2a78d6; --r4: #184f95; --r5: #0d366b;
-  --ring: #fcfcfb;
+  --ring: #fcfcfb; --area-low: #c3c2b7;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,7 +21,7 @@
     /* on the dark surface the ramp runs the other way: near-zero recedes into the dark */
     --s0: #52514e; --s1: #1c5cab; --s2: #2a78d6; --s3: #5598e7; --s4: #86b6ef; --s5: #cde2fb;
     --r0: #2c2c2a; --r1: #184f95; --r2: #256abf; --r3: #3987e5; --r4: #86b6ef; --r5: #cde2fb;
-    --ring: #1a1a19;
+    --ring: #1a1a19; --area-low: #52514e;
   }
 }
 * { box-sizing: border-box; }
@@ -53,7 +53,7 @@ button, select, input { font: inherit; color: inherit; }
 .row.disabled { opacity: 0.45; cursor: default; }
 .dim { display: block; padding: 6px; }
 .dim .title { display: flex; align-items: center; gap: 8px; font-weight: 600; }
-.dim .desc { display: none; } .dim:has(input:checked) .desc { display: block; color: var(--ink-2); font-size: 12.5px; margin: 2px 0 0 22px; }
+.dim .desc { display: none; color: var(--ink-2); font-size: 12.5px; margin: 2px 0 0 22px; }
 .tag { font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--axis); border-radius: 999px; padding: 0 6px; margin-left: auto; white-space: nowrap; }
 .group-label { font-size: 12px; color: var(--ink-2); margin: 10px 0 2px; }
 
@@ -91,6 +91,21 @@ button.ghost.wide { width: 100%; margin-top: 8px; padding: 5px; }
 .status { position: absolute; z-index: 800; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12); }
 .mapwrap { position: relative; }
 .leaflet-container { font: inherit; }
+/* boundary lines: crisp where the change is well placed, softened and blurred where the evidence is thin */
+.bl-blur { filter: blur(1.6px); stroke-dasharray: 2 5; }
+.bl-soft { filter: blur(0.5px); }
+.seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 6px; overflow: hidden; }
+.seg button { all: unset; padding: 3px 10px; cursor: pointer; font-size: 12.5px; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--surface); font-weight: 600; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--axis); border-radius: 999px; padding: 2px 10px 2px 8px; cursor: pointer; font-size: 12.5px; }
+.chip[aria-pressed="false"] { opacity: 0.45; }
+.chip[aria-disabled="true"] { opacity: 0.3; cursor: default; }
+.info { display: inline-flex; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--axis); color: var(--ink-2); font-size: 11px; align-items: center; justify-content: center; cursor: help; flex: none; }
+details.more { margin-top: 10px; }
+details.more summary { cursor: pointer; color: var(--ink-2); font-size: 12.5px; }
+.linekey { display: flex; align-items: center; gap: 8px; font-size: 12.5px; margin-top: 4px; }
+.linekey svg { width: 40px; height: 10px; flex: none; }
 .leaflet-bar a, .leaflet-bar a:hover { background: var(--surface); color: var(--ink); border-color: var(--hairline); }
 .leaflet-control-attribution { background: var(--surface) !important; color: var(--ink-2); }
 .leaflet-tile-pane { filter: grayscale(1) contrast(0.85) brightness(1.08) opacity(0.75); }

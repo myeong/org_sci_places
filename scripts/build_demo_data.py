@@ -74,12 +74,18 @@ attr = pd.read_csv(A / "tables/google_businesses.csv", keep_default_na=False).se
 wfile = A / "sample_weights_places.json"                       # only while a sample of places is scored; absent for the full run
 weight = json.load(open(wfile)) if wfile.exists() and args.suffix else {}
 places, hexagg = [], collections.defaultdict(lambda: collections.Counter()); misses = collections.Counter()
+# Business and venue names are shown as invented names (scripts/pseudonymize_names.py); a real name must never reach demo/data.
+PSEUDO = {d["id"]: d["pseudonym"] for d in map(json.loads, open(A / "pseudonyms.jsonl"))} if (A / "pseudonyms.jsonl").exists() else None
+def shown_name(uid, real):
+    if PSEUDO is None: raise SystemExit("data/analysis/pseudonyms.jsonl is missing: run scripts/pseudonymize_names.py first (real names must not be published)")
+    if uid not in PSEUDO: raise SystemExit(f"no invented name for {uid}: rerun scripts/pseudonymize_names.py")
+    return PSEUDO[uid]
 for s in scores:
     u = s["unit_id"]; a = attr.loc[u]; inp = inputs[u]; w = weight.get(u, 1.0)
     cat = a.map_group if a.map_group in PLACE_CATS else "Other"
     t = s["targeting"]; lab = labels(s); ti, ci = per_identity(lab, t["score"])
     cell = h3.latlng_to_cell(float(a.latitude), float(a.longitude), args.hex_res)
-    places.append({"id": u, "n": a["name"], "lat": round(float(a.latitude), 5), "lon": round(float(a.longitude), 5), "co": a.county, "cat": cat,
+    places.append({"id": u, "n": shown_name(u, a["name"]), "lat": round(float(a.latitude), 5), "lon": round(float(a.longitude), 5), "co": a.county, "cat": cat,
                    "t": t["score"], "tb": t["basis"], "tw": t["who"][:60], "b": s["socioeconomic_barrier"]["score"], "bk": s["socioeconomic_barrier"]["kind"],
                    "c": s["cultural_identity"]["score"], "lab": lab, "ti": ti, "ci": ci,
                    "nr": int(inp["n_text_reviews"]), "hx": cell, "w": round(w, 2)})
@@ -138,12 +144,13 @@ MEETUP_CATS = sorted({g["cat"] for g in groups if g["cat"] != "Other"}) + ["Othe
 # Venues that are somebody's home are left off the public map: their names and coordinates would point to a private
 # residence and often name the person ("Beth's house"). Found by name, so some homes named only by an address remain.
 HOME = re.compile(r"\b\w+['’]s\s+(house|home|place|pad|apartment|condo|cabin|backyard)\b|\bprivate\s+(residence|home|house)\b|\b(residence|home|house)\s+of\b|\b(my|our)\s+(place|home|house|apartment)\b", re.I)
+HOME_ADDRESS = re.compile(r"^\s*\d+\s+\w+.*\b(apt|apartment|unit|#)\s*\w+", re.I)    # "1234 Elm St Apt 5": a residential unit
 BUSINESS = re.compile(r"kabob|kebab|pizza|grill|cafe|café|restaurant|bar\b|pub\b|brew|tavern|museum|church|chapel|meeting house|wework|realty|fish house|pancake", re.I)
 venues = []; dropped_homes = 0
 for vk, sub in ev.groupby("N_ID"):
     if vk not in vattr.index: continue
     va = vattr.loc[vk]; cnt = sub.group_id.value_counts(); n = int(cnt.sum())
-    if HOME.search(str(va.venue_name)) and not BUSINESS.search(str(va.venue_name)): dropped_homes += 1; continue
+    if (HOME.search(str(va.venue_name)) or HOME_ADDRESS.search(str(va.venue_name))) and not BUSINESS.search(str(va.venue_name)): dropped_homes += 1; continue
     mean = {k: r2(sum(gix[g][k] * c for g, c in cnt.items()) / n) for k in DIM}
     cats = collections.Counter(); labw = collections.Counter(); lean = collections.Counter(); tiw = collections.Counter(); ciw = collections.Counter(); plw = collections.Counter()
     for g, c in cnt.items():
@@ -154,7 +161,7 @@ for vk, sub in ev.groupby("N_ID"):
         for l in gix[g]["lab"]: labw[l["l"]] += c * l["i"]
         if gix[g]["p"] >= 3: lean[gix[g]["lean"]] += c
     top = sorted(cnt.items(), key=lambda x: -x[1])[:3]
-    venues.append({"id": vk, "n": str(va.venue_name)[:80], "lat": round(float(va.latitude), 5), "lon": round(float(va.longitude), 5), "co": va.county, "cat": cats.most_common(1)[0][0],
+    venues.append({"id": vk, "n": shown_name(vk, str(va.venue_name))[:80], "lat": round(float(va.latitude), 5), "lon": round(float(va.longitude), 5), "co": va.county, "cat": cats.most_common(1)[0][0],
                    "ev": n, "ng": int(len(cnt)), **mean, "lean": lean.most_common(1)[0][0] if lean else "none",
                    "lab": [{"l": l, "i": r2(wt / n)} for l, wt in labw.most_common(3)],
                    "ti": {k: r2(x / n) for k, x in tiw.items() if x / n >= 0.05}, "ci": {k: r2(x / n) for k, x in ciw.items() if x / n >= 0.05},

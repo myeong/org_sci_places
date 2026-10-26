@@ -43,7 +43,7 @@ export function valueOf(rec, dimId, choice = "all") {
   switch (dimId) {
     case "targeting": return choice === "all" ? rec.t : (rec.ti?.[choice] ?? 0);
     case "cultural": return choice === "all" ? rec.c : (rec.ci?.[choice] ?? 0);
-    case "political": return rec.p == null ? null : choice === "all" ? rec.p : (rec.pl?.[choice] ?? 0);
+    case "political": return rec.p == null ? null : choice === "all" ? rec.p : rec.pl ? (rec.pl[choice] ?? 0) : (rec.lean === choice ? rec.p : 0);   // venues carry pl; groups their own lean
     case "barrier": return rec.b;
     default: return null;
   }

@@ -8,7 +8,7 @@ export function readTokens() {
   return {
     cat: [1, 2, 3, 4, 5, 6, 7, 8].map((i) => css(`--c${i}`)), other: css("--c-other"),
     score: [0, 1, 2, 3, 4, 5].map((i) => css(`--s${i}`)), rate: [0, 1, 2, 3, 4, 5].map((i) => css(`--r${i}`)),
-    ring: css("--ring"), ink: css("--ink"),
+    ring: css("--ring"), ink: css("--ink"), areaLow: css("--area-low"),
   };
 }
 

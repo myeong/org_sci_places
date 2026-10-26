@@ -13,6 +13,16 @@ async function loadLayer(layer, expected) {
   return chunks.flatMap((c) => JSON.parse(c.json));
 }
 
+// A boundary surface (regions and lines for one source and dimension), stored as text split across a few documents.
+const surfaceCache = new Map();
+export function loadSurface(key) {
+  if (!surfaceCache.has(key)) surfaceCache.set(key, (async () => {
+    const snap = await getDocs(query(collection(db, "map_chunks"), where("layer", "==", "bnd:" + key)));
+    return JSON.parse(snap.docs.map((d) => d.data()).sort((a, b) => a.i - b.i).map((c) => c.text).join(""));
+  })());
+  return surfaceCache.get(key);
+}
+
 export async function loadAll() {
   const metaSnap = await getDoc(doc(db, "map", "meta"));
   if (!metaSnap.exists()) throw new Error("The map data has not been uploaded yet.");
