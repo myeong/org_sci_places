@@ -1,0 +1,10 @@
+rules_version = '2';
+// Anyone can read the map data.
+// Nobody can write from the web; data is uploaded with scripts/upload_firestore.py using the owner's Google login.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /map/{doc} { allow read: if true; allow write: if false; }
+    match /map_chunks/{doc} { allow read: if true; allow write: if false; }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About · Social and cultural boundaries in the DC area</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Social and cultural boundaries in the DC area</h1>
+    <nav aria-label="Main"><a href="./">Map</a><a href="about" aria-current="page">About</a></nav>
+  </header>
+  <main class="doc">
+    <h1>A map of the geography nobody surveys</h1>
+    <p class="lead"><b>This map is one output of a method, not the method itself.</b> The method lets a researcher name any social or cultural construct in plain words, have a language model score it across large text collections, and map the result. Here it is applied to the Washington, DC area.</p>
+    <p class="lead">Physical geography is on record: streets, rivers, county lines. Social and cultural geography is not. Who a place is for, who feels they do not belong there, and what it takes to get in are written down only in what people say about it. This map reads that text with an AI model.</p>
+
+    <h2>1. How the dimensions are derived</h2>
+    <p>A boundary separates people who take part from people who do not. Every boundary has three parts, and each part is a question that can be asked of any place or group:</p>
+    <table>
+      <thead><tr><th>Part of a boundary</th><th>Question</th><th>Dimension on the map</th><th>Kind</th></tr></thead>
+      <tbody>
+        <tr><td>A group it is drawn around</td><td>Who is this for?</td><td><b>Exclusivity by design</b>, for each group (women, seniors, Black residents…)</td><td>Social</td></tr>
+        <tr><td>A marker that tells insiders from outsiders</td><td>Whose culture or cause does it express?</td><td><b>Cultural identity</b>, for each community (Korean, LGBTQ…); <b>Political leaning</b></td><td>Cultural, political</td></tr>
+        <tr><td rowspan="2">A consequence for those outside</td><td>What does it take to get in?</td><td><b>Socio-economic barrier</b></td><td>Social</td></tr>
+        <tr><td>Who is made to feel they do not belong?</td><td><b>Unwelcomeness</b></td><td>Psychological</td></tr>
+      </tbody>
+    </table>
+    <p>The questions are answered from two kinds of text: what a place or group <b>says about itself</b> (a Meetup group's description, a place's name and category) and what <b>visitors report</b> (Google reviews). Each answer is a score from 0, no sign of it, to 5, strong and explicit, together with the identities named, such as “LGBTQ” or “Korean”. Categories of places and groups are shown as a baseline that needs no AI.</p>
+
+    <h2>2. From dimensions to boundaries</h2>
+    <p>Not every boundary is a line. The scores separate three kinds:</p>
+    <div class="cards">
+      <div class="card">
+        <svg viewBox="0 0 200 64" role="img" aria-label="A sharp line between two sides"><rect x="0" y="8" width="100" height="48" fill="var(--s4)"/><rect x="100" y="8" width="100" height="48" fill="var(--r0)"/><line x1="100" y1="2" x2="100" y2="62" stroke="var(--ink)" stroke-width="2"/></svg>
+        <h3>Crisp</h3>
+        <p>A stated rule. You are in or you are out. Scores of 5.</p>
+        <q>“Women only.” “Members must pay dues.” “Dress code enforced.”</q>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 200 64" role="img" aria-label="A gradual fade from one side to the other"><defs><linearGradient id="g"><stop offset="0" stop-color="var(--s4)"/><stop offset="1" stop-color="var(--r0)"/></linearGradient></defs><rect x="0" y="8" width="200" height="48" fill="url(#g)"/></svg>
+        <h3>Gradual</h3>
+        <p>No rule, but a lean. Everyone may come; some feel more at home. Scores of 2 to 3.</p>
+        <q>“A taste of home.” “Mostly an older crowd.”</q>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 200 64" role="img" aria-label="One place that is a home for one group and a wall for another"><rect x="0" y="8" width="200" height="48" fill="var(--r0)"/><circle cx="100" cy="32" r="22" fill="var(--s4)"/><circle cx="100" cy="32" r="29" fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4 4"/></svg>
+        <h3>Two-sided</h3>
+        <p>The same place is a home for one community and a wall for others.</p>
+        <q>“The heart of the community.” “If you are not one of them, you wait.”</q>
+      </div>
+    </div>
+    <p>On the map, a place that states a rule shows as a single strong point: the spot where a crisp boundary is enforced. Gradual boundaries show as clusters and gradients across a neighbourhood. Where many places carry one cultural identity and people also report being made unwelcome, the two together trace a boundary that neither shows alone. The map's “Combined criteria” view finds such areas, and also the places that meet several conditions at once.</p>
+
+    <h2>3. What AI adds</h2>
+    <p>Physical geography has instruments: a survey, a satellite, a property record. Each gives the same answer whoever looks. Social and cultural geography has none. Its facts are relations between people and places, known only through accounts, and accounts are sentences, not numbers. A language model is the first instrument that can read those sentences at the scale of a city and return something that can be mapped.</p>
+    <table>
+      <thead><tr><th>Earlier tool</th><th>What it misses</th><th>What the model reads</th></tr></thead>
+      <tbody>
+        <tr><td>Categories (“Korean restaurant”)</td><td>Whether the place is a community's gathering point or just serves the food</td><td>“This is where our church meets after service”</td></tr>
+        <tr><td>Keywords (“racist”, “expensive”)</td><td>Meaning carried without the word, and the word used without the meaning</td><td>“They seated the couple behind us first, again”</td></tr>
+        <tr><td>Surveys and hand coding</td><td>Scale: tens of thousands of places, millions of reviews</td><td>Every place, with the same written rules, and a quote as evidence</td></tr>
+      </tbody>
+    </table>
+    <p>The rules the model follows are a plain-language codebook, so anyone can read and question how the measurement was made.</p>
+
+    <h2>4. Reading it with care</h2>
+    <div class="caveat">
+      <ul>
+        <li><b>Illustrations, not validated measures.</b> Scores were checked by two AI models and not yet against human coders.</li>
+        <li><b>A sample for now.</b> So far the map covers <span id="sample">a sample of places</span>; the full set follows.</li>
+        <li><b>“Unwelcomeness” is shown for areas only</b>, as reports per 1,000 reviews. It never names a place: one anonymous review should not brand a business.</li>
+        <li><b>Reviews and group pages speak for those who write them.</b> People who never went, or never wrote, are not on the map.</li>
+      </ul>
+    </div>
+    <p class="note" style="margin-top:16px">Data: Google Local reviews (UCSD McAuley Lab) and Meetup groups, events, and venues, 2017–2020, in DC, Montgomery, Prince George's, Arlington, Alexandria, and Fairfax. Scored with Gemini on Vertex AI. A research instrument for a proposal to <i>Organization Science</i>.</p>
+  </main>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-lite.js";
+    import { firebaseConfig } from "./js/config.js";
+    try {
+      const m = (await getDoc(doc(getFirestore(initializeApp(firebaseConfig)), "map", "meta"))).data();
+      if (m.stage === "sample") document.getElementById("sample").textContent = `${m.counts.places.toLocaleString()} of ${m.counts.places_eligible.toLocaleString()} eligible Google places and all ${m.counts.groups.toLocaleString()} Meetup groups based in the region`;
+      else document.getElementById("sample").closest("li").remove();
+    } catch (e) { console.warn(e); }
+  </script>
+</body>
+</html>

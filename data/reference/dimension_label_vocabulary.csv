@@ -1,0 +1,469 @@
+raw_label,canonical_label,n_groups,n_places,family,generic_flag
+35 plus,35 plus,1,0,age_life_stage,False
+40s to 70s,40s to 70s,1,0,age_life_stage,False
+20s-40s,Adults (30s-40s),1,0,age_life_stage,False
+30's-40's,Adults (30s-40s),1,0,age_life_stage,False
+30s and 40s,Adults (30s-40s),4,0,age_life_stage,False
+Children,Children,3,41,age_life_stage,True
+College Students,College students,1,0,age_life_stage,False
+College students,College students,1,3,age_life_stage,False
+Empty nesters,Empty nesters,1,0,age_life_stage,False
+Gen X,Gen X,1,0,age_life_stage,False
+Generation X,Generation X,1,0,age_life_stage,False
+High school students,High school students,0,1,age_life_stage,False
+Homeschoolers,Homeschoolers,1,0,age_life_stage,False
+International students,International students,1,0,age_life_stage,False
+Kids,Kids,2,0,age_life_stage,True
+Middle school students,Middle school students,0,1,age_life_stage,False
+Middle-aged,Middle-aged,1,0,age_life_stage,False
+Middle-aged adults,Middle-aged adults,1,0,age_life_stage,False
+Millennials,Millennials,2,1,age_life_stage,False
+Over 35,Over 35,1,0,age_life_stage,False
+Over 40,Over 40,6,0,age_life_stage,False
+Seniors,Seniors,84,20,age_life_stage,False
+Teens,Teens,6,2,age_life_stage,True
+Third Culture Kids,Third Culture Kids,1,0,age_life_stage,False
+Toddlers,Toddlers,1,0,age_life_stage,True
+20's-30's,Young adults (20s-30s),8,0,age_life_stage,False
+20s & 30s,Young adults (20s-30s),1,0,age_life_stage,False
+20s and 30s,Young adults (20s-30s),1,0,age_life_stage,False
+20s-30s,Young adults (20s-30s),4,0,age_life_stage,False
+Young Adults,Young adults (20s-30s),1,0,age_life_stage,False
+Young adults,Young adults (20s-30s),24,1,age_life_stage,False
+Young professionals,Young professionals,191,9,age_life_stage,False
+Youth,Youth,5,2,age_life_stage,True
+Artists,Artists,1,0,class_occupation,False
+Au pairs,Au pairs,1,0,class_occupation,False
+Business executives and investors,Business executives and investors,1,0,class_occupation,False
+Business owners,Business owners,2,0,class_occupation,False
+Business professionals,Business professionals,9,0,class_occupation,False
+Chief Technology Officers,Chief Technology Officers,1,0,class_occupation,False
+Coaches,Coaches,1,0,class_occupation,False
+Data scientists,Data scientists,1,0,class_occupation,False
+Designers,Designers,1,0,class_occupation,False
+Designers and creative professionals,Designers and creative professionals,1,0,class_occupation,False
+Educators,Educators,2,0,class_occupation,False
+Entrepreneurs,Entrepreneurs,11,0,class_occupation,False
+Executives,Executives,1,0,class_occupation,False
+First responders,First responders,1,0,class_occupation,False
+Freelancers,Freelancers,1,0,class_occupation,False
+Government contractors,Government contractors,2,0,class_occupation,False
+Government professionals,Government professionals,3,0,class_occupation,False
+Government workers,Government workers,1,0,class_occupation,False
+Healthcare Professionals,Healthcare professionals,1,0,class_occupation,False
+Healthcare professionals,Healthcare professionals,2,0,class_occupation,False
+High-income,High-income,0,1,class_occupation,False
+High-income professionals,High-income professionals,1,0,class_occupation,False
+Homeless,Homeless,0,3,class_occupation,False
+IT professionals,IT professionals,2,0,class_occupation,False
+International affairs professionals,International affairs professionals,1,0,class_occupation,False
+International development professionals,International development professionals,1,0,class_occupation,False
+Job seekers,Job seekers,1,0,class_occupation,False
+Journalists,Journalists,1,0,class_occupation,False
+Lawyers,Lawyers,2,0,class_occupation,False
+Low-income,Low-income,0,2,class_occupation,False
+Luxury lifestyle,Luxury lifestyle,1,0,class_occupation,False
+Military,Military / Veterans,0,5,class_occupation,False
+Military / Veterans,Military / Veterans,1,2,class_occupation,False
+Military/Veterans,Military / Veterans,1,0,class_occupation,False
+Veterans,Military / Veterans,9,1,class_occupation,False
+Nonprofit professionals,Nonprofit professionals,4,0,class_occupation,False
+Operations research and analytics professionals,Operations research and analytics professionals,1,0,class_occupation,False
+Photographers,Photographers,1,0,class_occupation,False
+Product managers,Product managers,1,0,class_occupation,False
+Project managers,Project managers,1,0,class_occupation,False
+Property managers,Property managers,1,0,class_occupation,False
+Real estate agents,Real estate agents,3,0,class_occupation,False
+Real estate investors,Real estate investors,2,0,class_occupation,False
+Real estate professionals,Real estate professionals,1,0,class_occupation,False
+Small business owners,Small business owners,1,0,class_occupation,False
+Social sector professionals,Social sector professionals,1,0,class_occupation,False
+Tech executives,Tech executives,1,0,class_occupation,False
+Translators and interpreters,Translators and interpreters,1,0,class_occupation,False
+Uber drivers,Uber drivers,0,1,class_occupation,False
+Upper class,Upper class,0,1,class_occupation,False
+Working class,Working class,0,1,class_occupation,False
+Afghan,Afghan,0,3,ethnic_national,False
+Afghani,Afghani,0,1,ethnic_national,False
+African,African,11,2,ethnic_national,False
+African American,African American,10,0,ethnic_national,False
+African Americans,African American,1,0,ethnic_national,False
+African-American,African American,1,0,ethnic_national,False
+African Diaspora,African diaspora,1,0,ethnic_national,False
+African diaspora,African diaspora,3,0,ethnic_national,False
+Afro-Caribbean,Afro-Caribbean,2,0,ethnic_national,False
+American,American,1,5,ethnic_national,False
+Arab,Arab,1,4,ethnic_national,False
+Arabic,Arabic,2,4,ethnic_national,False
+Argentinian,Argentinian,0,1,ethnic_national,False
+Armenian,Armenian,0,1,ethnic_national,False
+Asian American,Asian American,4,0,ethnic_national,False
+Asian Americans,Asian American,3,0,ethnic_national,False
+Asian-Pacific American,Asian American,1,0,ethnic_national,False
+Australian,Australian,1,2,ethnic_national,False
+Austrian,Austrian,1,1,ethnic_national,False
+Bangladeshi,Bangladeshi,1,0,ethnic_national,False
+Belgian,Belgian,0,2,ethnic_national,False
+Bengali,Bengali,0,1,ethnic_national,False
+Bolivian,Bolivian,0,1,ethnic_national,False
+Boston / New England,Boston / New England,2,0,ethnic_national,False
+Brazilian,Brazilian,9,1,ethnic_national,False
+British,British,3,0,ethnic_national,False
+Cambodian,Cambodian,0,1,ethnic_national,False
+Caribbean,Caribbean,11,6,ethnic_national,False
+Central American,Central American,0,1,ethnic_national,False
+Chicagoan,Chicagoan,1,0,ethnic_national,False
+Chinese,Chinese,15,66,ethnic_national,False
+Colombian,Colombian,0,1,ethnic_national,False
+Cuban,Cuban,3,3,ethnic_national,False
+Cypriot,Cypriot,0,1,ethnic_national,False
+Czech,Czech,0,1,ethnic_national,False
+Danish,Danish,1,0,ethnic_national,False
+Desi,Desi,6,1,ethnic_national,False
+Desis,Desi,2,0,ethnic_national,False
+Dominican,Dominican,1,2,ethnic_national,False
+East African,East African,1,0,ethnic_national,False
+East Asian,East Asian,1,0,ethnic_national,False
+Eastern European,Eastern European,2,0,ethnic_national,False
+Eritrean,Eritrean,0,3,ethnic_national,False
+Ethiopian,Ethiopian,3,14,ethnic_national,False
+European,European,3,0,ethnic_national,False
+Expat,Expats,3,0,ethnic_national,False
+Expats,Expats,4,0,ethnic_national,False
+Filipino,Filipino,3,1,ethnic_national,False
+French,French,23,10,ethnic_national,False
+German,German,9,2,ethnic_national,False
+Ghanaian,Ghanaian,1,0,ethnic_national,False
+Greek,Greek,1,12,ethnic_national,False
+Guatemalan,Guatemalan,0,1,ethnic_national,False
+Gujarati,Gujarati,0,1,ethnic_national,False
+Guyanese,Guyanese,1,1,ethnic_national,False
+Honduran,Honduran,0,1,ethnic_national,False
+Hong Kong,Hong Kong,0,1,ethnic_national,False
+Hungarian,Hungarian,1,0,ethnic_national,False
+Immigrant,Immigrants,0,1,ethnic_national,False
+Immigrants,Immigrants,5,2,ethnic_national,False
+Indian,Indian,35,30,ethnic_national,False
+International,International,2,0,ethnic_national,False
+Iranian,Iranian,2,1,ethnic_national,False
+Iraqi,Iraqi,0,1,ethnic_national,False
+Irish,Irish,3,5,ethnic_national,False
+Israeli,Israeli,1,1,ethnic_national,False
+Italian,Italian,8,47,ethnic_national,False
+Jamaican,Jamaican,0,4,ethnic_national,False
+Japanese,Japanese,11,47,ethnic_national,False
+Jordanian,Jordanian,0,1,ethnic_national,False
+Korean,Korean,12,26,ethnic_national,False
+Hispanic,Latino,2,2,ethnic_national,False
+Latina,Latino,1,0,ethnic_national,False
+Latino,Latino,48,63,ethnic_national,False
+Lebanese,Lebanese,0,6,ethnic_national,False
+Louisiana,Louisiana,0,1,ethnic_national,False
+Mexican,Mexican,1,62,ethnic_national,False
+Middle Eastern,Middle Eastern,1,21,ethnic_national,False
+Midwesterners,Midwesterners,1,0,ethnic_national,False
+Minnesotan,Minnesotan,0,1,ethnic_national,False
+Mongolian,Mongolian,0,2,ethnic_national,False
+Multicultural,Multicultural,2,0,ethnic_national,False
+Nepalese,Nepalese,0,2,ethnic_national,False
+Nepali,Nepali,0,1,ethnic_national,False
+New England,New England,1,0,ethnic_national,False
+New Orleans,New Orleans,0,1,ethnic_national,False
+New Yorker,New Yorker,0,1,ethnic_national,False
+Nigerian,Nigerian,3,4,ethnic_national,False
+Nordic,Nordic,1,0,ethnic_national,False
+North African,North African,0,1,ethnic_national,False
+Norwegian,Norwegian,3,0,ethnic_national,False
+Pakistani,Pakistani,1,4,ethnic_national,False
+Palestinian,Palestinian,0,2,ethnic_national,False
+Pan-Asian,Pan-Asian,0,1,ethnic_national,False
+Persian,Persian,3,6,ethnic_national,False
+Peruvian,Peruvian,0,12,ethnic_national,False
+Polish,Polish,1,0,ethnic_national,False
+Portuguese,Portuguese,3,3,ethnic_national,False
+Puerto Rican,Puerto Rican,1,1,ethnic_national,False
+Punjabi,Punjabi,0,2,ethnic_national,False
+Russian,Russian,7,2,ethnic_national,False
+Salvadoran,Salvadoran,0,21,ethnic_national,False
+San Francisco Bay Area,San Francisco Bay Area,1,0,ethnic_national,False
+Saudi,Saudi,0,1,ethnic_national,False
+Scandinavian,Scandinavian,2,2,ethnic_national,False
+Scottish,Scottish,3,0,ethnic_national,False
+South African,South African,1,2,ethnic_national,False
+South American,South American,0,1,ethnic_national,False
+South Asian,South Asian,27,11,ethnic_national,False
+Southeast Asian,Southeast Asian,0,1,ethnic_national,False
+Southern,Southern,1,4,ethnic_national,False
+Sri Lankan,Sri Lankan,2,0,ethnic_national,False
+Swedish,Swedish,3,2,ethnic_national,False
+Syrian,Syrian,0,1,ethnic_national,False
+Syrian-American,Syrian-American,0,1,ethnic_national,False
+Taiwanese,Taiwanese,1,3,ethnic_national,False
+Tajik,Tajik,0,1,ethnic_national,False
+Thai,Thai,1,18,ethnic_national,False
+Trinidadian,Trinidadian,1,2,ethnic_national,False
+Turkish,Turkish,1,4,ethnic_national,False
+Venezuelan,Venezuelan,0,1,ethnic_national,False
+Vietnamese,Vietnamese,2,28,ethnic_national,False
+West African,West African,0,2,ethnic_national,False
+West Indian,West Indian,1,1,ethnic_national,False
+Fathers,Fathers,2,0,gender,False
+Feminist,Feminist,2,0,gender,False
+Men,Men,20,10,gender,False
+Moms,Moms,1,0,gender,False
+Mothers,Mothers,1,0,gender,False
+New moms,New moms,1,0,gender,False
+Professional Women,Professional Women,1,0,gender,False
+Single moms,Single moms,1,0,gender,False
+Stay-at-Home Moms,Stay-at-Home Moms,1,0,gender,False
+Women,Women,350,29,gender,False
+Women Entrepreneurs,Women Entrepreneurs,2,0,gender,False
+Women of Color,Women of Color,3,0,gender,False
+Women of color,Women of Color,1,0,gender,False
+Working Moms,Working Moms,1,0,gender,False
+American Sign Language,American Sign Language,1,0,language,False
+Arabic-speaking,Arabic-speaking,0,1,language,False
+Chinese-speaking,Chinese-speaking,3,0,language,False
+English learners,English learners,2,1,language,False
+English-learning,English-learning,2,0,language,False
+English-speaking,English-speaking,2,0,language,False
+Esperanto,Esperanto,1,0,language,False
+Farsi-speaking,Farsi-speaking,1,0,language,False
+Francophone,Francophone,3,0,language,False
+French-speaking,French-speaking,3,1,language,False
+Gaelic,Gaelic,1,0,language,False
+German-speaking,German-speaking,4,0,language,False
+Greek-speaking,Greek-speaking,1,0,language,False
+Hindi,Hindi,2,0,language,False
+Hindi-speaking,Hindi-speaking,4,0,language,False
+Italian-speaking,Italian-speaking,4,0,language,False
+Japanese-speaking,Japanese-speaking,2,0,language,False
+Korean-speaking,Korean-speaking,0,1,language,False
+Language,Language,2,0,language,False
+Language learners,Language learners,2,0,language,False
+Mandarin-speaking,Mandarin-speaking,1,1,language,False
+Multilingual,Multilingual,1,0,language,False
+Non-English-speaking,Non-English-speaking,0,1,language,False
+Non-native English speakers,Non-native English speakers,0,1,language,False
+Norwegian-speaking,Norwegian-speaking,1,0,language,False
+Persian-speaking,Persian-speaking,1,0,language,False
+Polish-speaking,Polish-speaking,1,0,language,False
+Polyglot,Polyglot,1,0,language,False
+Portuguese-speaking,Portuguese-speaking,4,0,language,False
+Russian-speaking,Russian-speaking,1,1,language,False
+Spanish,Spanish,2,3,language,False
+Spanish-speaking,Spanish-speaking,33,94,language,False
+Swahili,Swahili,1,0,language,False
+Swahili-speaking,Swahili-speaking,0,1,language,False
+Turkish-speaking,Turkish-speaking,1,0,language,False
+LGBTQ,LGBTQ,122,18,lgbtq,False
+Transgender,Transgender,2,0,lgbtq,False
+2025-05-18,2025-05-18,1,0,other,True
+30s,30s,2,0,other,False
+Adult professionals,Adult professionals,1,0,other,True
+Adults,Adults,52,0,other,True
+Adults 21+,Adults 21+,3,0,other,False
+Adults 29+,Adults 29+,1,0,other,False
+Adults 30+,Adults 30+,1,0,other,False
+Adults 30-60,Adults 30-60,1,0,other,False
+Adults 30s-50s,Adults 30s-50s,1,0,other,False
+Adults 35+,Adults 35+,1,0,other,False
+Adults over 30,Adults over 30,1,0,other,False
+Adults with ADHD,Adults with ADHD,2,0,other,False
+Adults with mental health conditions,Adults with mental health conditions,1,0,other,False
+Animal Rights,Animal rights,1,0,other,False
+Animal rights,Animal rights,6,0,other,False
+Asian Professionals,Asian Professionals,1,0,other,False
+Authentic Relating Subculture,Authentic Relating Subculture,1,0,other,False
+Biker,Bikers,2,0,other,False
+Bikers,Bikers,4,0,other,False
+Black Professionals,Black Professionals,1,0,other,False
+Bronies,Bronies,1,0,other,False
+Buffalo Bills fans,Buffalo Bills fans,0,1,other,False
+Burlesque/Cabaret subculture,Burlesque/Cabaret subculture,1,0,other,False
+Cajun,Cajun,0,3,other,False
+Cannabis culture,Cannabis culture,0,1,other,False
+Celtic,Celtic,3,0,other,False
+Childfree,Childfree,4,0,other,False
+Chinese-American,Chinese-American,1,0,other,False
+Chronic pain community,Chronic pain community,1,0,other,False
+Conscious Dance Subculture,Conscious Dance Subculture,1,0,other,False
+Conscious movement community,Conscious movement community,1,0,other,False
+Couples,Couples,2,0,other,True
+Creole,Creole,0,3,other,False
+Deaf culture,Deaf culture,1,0,other,False
+Divorced,Divorced / Separated,3,0,other,False
+Divorced / Separated,Divorced / Separated,2,0,other,False
+Divorced or separating individuals,Divorced / Separated,1,0,other,False
+Divorcing or separating individuals,Divorced / Separated,1,0,other,False
+EDM / electronic music subculture,EDM / electronic music subculture,1,0,other,False
+EDM subculture,EDM subculture,1,0,other,False
+Environmentalist,Environmentalist,13,1,other,False
+Esoteric / New Age,Esoteric / New Age,1,0,other,False
+Esoteric/Spiritual,Esoteric/Spiritual,1,0,other,False
+Families,Families,14,83,other,True
+Families with children,Families with children,0,4,other,True
+Fandom / Harry Potter,Fandom / Harry Potter,1,0,other,False
+Flow Arts,Flow Arts,1,0,other,False
+Folk music and dance,Folk music and dance,1,0,other,False
+Fourth Way / Spiritual seekers,Fourth Way / Spiritual seekers,1,0,other,False
+Furry fandom,Furry fandom,1,0,other,False
+Gamer,Gamer,5,0,other,False
+Geek / Nerd Subculture,Geek / Nerd subculture,2,0,other,False
+Geek / Nerd culture,Geek / Nerd subculture,1,0,other,False
+Geek Culture,Geek / Nerd subculture,3,0,other,False
+Geek subculture,Geek / Nerd subculture,2,0,other,False
+Goth,Goth,1,0,other,False
+Gun owners,Gun owners,2,0,other,False
+Hacker / Maker,Hacker / Maker,1,0,other,False
+Hand Dance,Hand Dance,1,0,other,False
+Hawaiian,Hawaiian,0,2,other,False
+Hebrew,Hebrew,0,1,other,False
+Hindu / Yogic,Hindu / Yogic,1,0,other,False
+Hindu spiritual / Art of Living,Hindu spiritual / Art of Living,1,0,other,False
+Hindu spiritual tradition,Hindu spiritual tradition,1,0,other,False
+Hindu-derived spirituality,Hindu-derived spirituality,1,0,other,False
+Hip-hop,Hip-hop,0,1,other,False
+Hipster,Hipster,0,1,other,False
+Holistic / Alternative Health Subculture,Holistic / Alternative Health Subculture,1,0,other,False
+Holistic / New Age Wellness,Holistic / New Age Wellness,1,0,other,False
+Holistic spiritual,Holistic spiritual,1,0,other,False
+Indigenous Spirituality,Indigenous Spirituality,1,0,other,False
+Interfaith/Spiritual,Interfaith/Spiritual,2,0,other,False
+International/Immigrant,International/Immigrant,1,0,other,False
+LARP Subculture,LARP Subculture,1,0,other,False
+Latin dance subculture,Latin dance subculture,1,0,other,False
+Louisiana / New Orleans,Louisiana / New Orleans,1,0,other,False
+Mediterranean,Mediterranean,0,20,other,False
+Metaphysical / Spiritualist,Metaphysical / Spiritualist,1,0,other,False
+Military families,Military families,3,0,other,False
+Neurodivergent,Neurodivergent,1,0,other,False
+Occult / Esoteric,Occult / Esoteric,1,0,other,False
+Pagan / Earth-Based Spirituality,Pagan / Earth-Based Spirituality,1,0,other,False
+Parents,Parents,24,3,other,True
+People with EDS/HSD,People with EDS/HSD,1,0,other,False
+People with disabilities,People with disabilities,5,2,other,False
+People with mood disorders,People with mood disorders,1,0,other,False
+Pilgrimage,Pilgrimage,1,0,other,False
+Polyamorous,Polyamorous,1,0,other,False
+Preppers,Preppers,1,0,other,False
+Professionals,Professionals,12,0,other,True
+Psychedelic Culture,Psychedelic Culture,1,0,other,False
+Qabalah / Esoteric,Qabalah / Esoteric,1,0,other,False
+Sahaja Yoga,Sahaja Yoga,1,0,other,False
+Sci-Fi fans,Sci-Fi fans,1,0,other,False
+Single parents,Single parents,2,0,other,False
+Singles,Singles,84,0,other,True
+Soul food,Soul food,0,1,other,False
+South Indian,South Indian,0,1,other,False
+Spiritual / Animist,Spiritual / Animist,1,0,other,False
+Spiritual / Esoteric,Spiritual / Esoteric,1,0,other,False
+Spiritual Seekers,Spiritual Seekers,1,0,other,False
+Spiritual / Metaphysical,Spiritual/Metaphysical,1,0,other,False
+Spiritual/Metaphysical,Spiritual/Metaphysical,1,0,other,False
+Students,Students,0,9,other,True
+Swing dancers,Swing dancers,1,0,other,False
+Tex-Mex,Tex-Mex,0,1,other,False
+Tibetan,Tibetan,2,0,other,False
+Transhumanist,Transhumanist,1,0,other,False
+Vegan,Vegan,9,0,other,False
+Vegetarian/Vegan,Vegetarian/Vegan,1,0,other,False
+Western Mystery Tradition,Western Mystery Tradition,1,0,other,False
+Widowed,Widowed / Widowers,1,0,other,False
+Widows and Widowers,Widowed / Widowers,3,0,other,False
+Widows and widowers,Widowed / Widowers,1,0,other,False
+Women 20's-30's,Women 20's-30's,1,0,other,False
+Yogic / Dharmic,Yogic / Dharmic,1,0,other,False
+Yogic/Hindu spirituality,Yogic/Hindu spirituality,1,0,other,False
+Yoruba,Yoruba,1,0,other,False
+Activism,Activism,1,0,political,False
+Civic engagement,Civic engagement,1,0,political,False
+Conservative,Conservative,21,2,political,False
+Democratic,Democratic,1,0,political,False
+Human rights,Human rights,1,0,political,False
+Liberal,Liberal,1,0,political,False
+Libertarian,Libertarian,4,0,political,False
+Nonpartisan,Nonpartisan,2,0,political,False
+Patriotic / Conservative,Patriotic / Conservative,0,1,political,False
+Progressive,Progressive,127,4,political,False
+Republican,Republican,1,0,political,False
+Social justice,Social justice,1,0,political,False
+Socialist,Socialist,2,0,political,False
+Transhumanist Party,Transhumanist Party,1,0,political,False
+Asian,Asian,22,14,race,False
+Black,Black,133,39,race,False
+Interracial/Multicultural,Interracial/Multicultural,1,0,race,False
+Multiracial,Multiracial,2,0,race,False
+Pacific Islander,Pacific Islander,1,0,race,False
+People of Color,People of Color,6,0,race,False
+White,White,1,1,race,False
+Advaita Vedanta,Advaita Vedanta,2,0,religious,False
+Adventist,Adventist,0,1,religious,False
+Agnostic,Agnostic,4,0,religious,False
+Amish,Amish,0,1,religious,False
+Atheist,Atheist,18,0,religious,False
+Atheist / Secular,Atheist / Secular,1,0,religious,False
+Secular / Atheist,Atheist / Secular,1,0,religious,False
+Secular/Atheist,Atheist / Secular,1,0,religious,False
+Baha'i,Baha'i,2,0,religious,False
+Bahá'í,Baha'i,2,0,religious,False
+Baptist,Baptist,1,18,religious,False
+Brahma Kumaris,Brahma Kumaris,0,1,religious,False
+Buddhist,Buddhist,27,2,religious,False
+Catholic,Catholic,3,18,religious,False
+Christian,Christian,61,40,religious,False
+Druid,Druid,1,0,religious,False
+Earth-Based Spirituality,Earth-Based Spirituality,1,0,religious,False
+Eckankar,Eckankar,3,0,religious,False
+Episcopal,Episcopal,1,1,religious,False
+Ex-Jehovah's Witnesses,Ex-Jehovah's Witnesses,1,0,religious,False
+Ex-Mormon,Ex-Mormon,1,0,religious,False
+Freemasons,Freemasons,0,1,religious,False
+Halal,Halal,0,1,religious,False
+Heathen,Heathen,2,0,religious,False
+Hindu,Hindu,7,4,religious,False
+Humanist,Humanist,10,0,religious,False
+Interfaith,Interfaith,10,0,religious,False
+Jewish,Jewish,11,6,religious,False
+Kosher,Kosher,0,1,religious,False
+Latter-day Saint,Latter-day Saint,0,1,religious,False
+Latter-day Saints,Latter-day Saints,0,1,religious,False
+Lutheran,Lutheran,1,1,religious,False
+Metaphysical,Metaphysical,0,1,religious,False
+Methodist,Methodist,0,1,religious,False
+Muslim,Muslim,9,29,religious,False
+Naturist,Naturist,1,0,religious,False
+New Thought,New Thought,5,0,religious,False
+Orthodox,Orthodox,0,1,religious,False
+Osho,Osho,3,0,religious,False
+Pagan,Pagan,9,0,religious,False
+Pentecostal,Pentecostal,0,2,religious,False
+Presbyterian,Presbyterian,2,1,religious,False
+Religious,Religious,2,0,religious,False
+Science of Mind,Science of Mind,1,0,religious,False
+Scientology,Scientology,5,0,religious,False
+Secular,Secular,7,0,religious,False
+Secular Humanist,Secular Humanist,1,0,religious,False
+Secular humanist,Secular Humanist,1,0,religious,False
+Secular/Humanist,Secular Humanist,1,0,religious,False
+Secularist,Secularist,1,0,religious,False
+Self-Realization Fellowship,Self-Realization Fellowship,1,0,religious,False
+Seventh-day Adventist,Seventh-day Adventist,0,5,religious,False
+Shamanism,Shamanism,2,0,religious,False
+Secular/Skeptics,Skeptics,1,0,religious,False
+Skeptics,Skeptics,1,0,religious,False
+New Age,Spiritual / New Age,19,0,religious,False
+New Age / Spiritual,Spiritual / New Age,4,0,religious,False
+Spiritual,Spiritual / New Age,74,1,religious,False
+Spiritual / New Age,Spiritual / New Age,11,0,religious,False
+Spiritualism,Spiritualism,1,0,religious,False
+Spiritualist,Spiritualist,2,0,religious,False
+Sufi,Sufi,2,0,religious,False
+Sufism,Sufism,1,0,religious,False
+Tibetan Buddhism,Tibetan Buddhism,1,0,religious,False
+Tibetan Buddhist,Tibetan Buddhist,1,0,religious,False
+Unitarian Universalist,Unitarian Universalist,2,1,religious,False
+Wiccan,Wiccan,3,0,religious,False
+Witches,Witches,1,0,religious,False
+Yogic,Yogic,1,0,religious,False
+Zen,Zen,1,0,religious,False

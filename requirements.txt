@@ -1,0 +1,4 @@
+google-genai>=2.27
+google-cloud-firestore>=2.34
+pandas>=3.0
+h3>=4.5

@@ -1,0 +1,10 @@
+# Input data and model outputs stay local (size, and the terms of the source datasets)
+data/analysis/*
+!data/analysis/.gitkeep
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+demo/.firebase/
+demo/.firebaserc
+.env*

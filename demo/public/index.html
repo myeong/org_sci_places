@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social and cultural boundaries in the DC area</title>
+  <meta name="description" content="A research instrument: social, cultural, and political dimensions of places and groups in the Washington, DC area, read from text by an AI model.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Social and cultural boundaries in the DC area</h1>
+    <nav aria-label="Main"><a href="./" aria-current="page">Map</a><a href="about">About</a></nav>
+  </header>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Map controls"></aside>
+    <main class="mapwrap">
+      <div id="map" role="application" aria-label="Map of the Washington, DC area"></div>
+      <div class="legend" id="legend" aria-label="Legend"></div>
+      <div class="status" id="status" role="status">Loading the map data…</div>
+    </main>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
